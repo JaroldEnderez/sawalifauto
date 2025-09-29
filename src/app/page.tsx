@@ -202,7 +202,7 @@ export default function Home() {
                 alt={articles[0].title}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-4">
+              <div className="p-4 text-right">
                 <h3 className="text-lg font-semibold mb-2 text-black">{articles[0].title}</h3>
                 <p className="text-gray-600 text-sm">{articles[0].summary}</p>
                 <a
