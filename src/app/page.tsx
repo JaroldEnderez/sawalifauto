@@ -1,103 +1,221 @@
-import Image from "next/image";
-
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // dummy articles
+  const articles = [
+    {
+      id: 1,
+      title: "New Porsche 911 Review",
+      summary: "A quick look at the latest Porsche 911 and its performance features.",
+      image: "https://placehold.co/600x400",
+      url: "#",
+    },
+    {
+      id: 2,
+      title: "Tesla Model S Plaid",
+      summary: "Exploring Tesla’s fastest sedan and how it stacks against supercars.",
+      image: "https://placehold.co/600x400",
+      url: "#",
+    },
+    {
+      id: 3,
+      title: "Toyota Corolla Hybrid",
+      summary: "An eco-friendly choice with surprising practicality.",
+      image: "https://placehold.co/600x400",
+      url: "#",
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-white py-8 shadow-sm">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Auto Reviews</h1>
+          <p className="text-gray-600 text-lg">
+            Latest car reviews scraped and translated for you.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Articles Section */}
+      <section className="max-w-6xl mx-auto px-6 py-6">
+        <h2 className="text-2xl font-semibold mb-2 text-right text-gray-800">Latest Articles</h2>
+        <hr className="border-gray-400 mb-6 bg-white w-full" />
+
+        <div className="flex gap-x-5 h-[60vh] text-right">
+          <div
+            key={articles[0].id}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition w-1/4"
+          >
+            <img
+              src={articles[0].image}
+              alt={articles[0].title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold mb-2 text-black">{articles[0].title}</h3>
+              <p className="text-gray-600 text-sm">{articles[0].summary}</p>
+              <a
+                href={articles[0].url}
+                className="text-blue-600 text-sm font-medium mt-3 inline-block"
+              >
+                Read More →
+              </a>
+            </div>
+          </div>
+          <div
+            key={articles[1].id}
+            className="relative bg-red-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition w-1/2"
+          >
+            <img
+              src={articles[1].image}
+              alt={articles[1].title}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center">
+              <h3 className="text-lg font-semibold mb-2 text-black z-10">{articles[1].title}</h3>
+            </div>
+          </div>
+          <div
+            key={articles[2].id}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition w-1/4"
+          >
+            <img
+              src={articles[2].image}
+              alt={articles[2].title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold mb-2 text-black">{articles[2].title}</h3>
+              <p className="text-gray-600 text-sm">{articles[2].summary}</p>
+              <a
+                href={articles[2].url}
+                className="text-blue-600 text-sm font-medium mt-3 inline-block"
+              >
+                Read More →
+              </a>
+            </div>
+          </div>
+        </div>
+        </section>
+        
+        <section className="max-w-6xl mx-auto px-6 py-6">
+          <h2 className="text-2xl font-semibold mb-2 text-right text-gray-800">In-Depth Automotive Video Reviews</h2>
+          <div className="flex gap-x-5">
+            <div className="w-1/2">
+              <hr className="border-gray-400 bg-white w-full" />
+              <div className="flex gap-x-5 p-4 h-48">
+              {/* Text block takes 70% */}
+              <div className="flex flex-col justify-between text-right w-[70%]">
+                <h3 className="text-gray-800 font-bold">{articles[0].title}</h3>
+                <p className="text-gray-800 line-clamp-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                  reprehenderit ad earum accusantium, quia similique dolores modi,
+                  cumque quas ullam dolore, hic magni?
+                </p>
+                <p className="text-gray-800">
+                  by <span className="font-bold text-gray-800">Author</span>
+                </p>
+              </div>
+
+              {/* Image container takes 30% */}
+              <div className="w-[30%] h-full">
+                <img
+                  src={articles[2].image}
+                  alt={articles[1].title}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </div>
+            </div>
+            <div className="flex gap-x-5 p-4 h-48">
+            {/* Text block takes 70% */}
+            <div className="flex flex-col justify-between text-right w-[70%]">
+              <h3 className="text-gray-800 font-bold">{articles[0].title}</h3>
+              <p className="text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                reprehenderit ad earum accusantium, quia similique dolores modi,
+                cumque quas ullam dolore, hic magni?
+              </p>
+              <p className="text-gray-800">
+                by <span className="font-bold text-gray-800">Author</span>
+              </p>
+            </div>
+
+            {/* Image container takes 30% */}
+            <div className="w-[30%] h-full">
+              <img
+                src={articles[2].image}
+                alt={articles[1].title}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-x-5 p-4 h-48">
+            {/* Text block takes 70% */}
+            <div className="flex flex-col justify-between text-right w-[70%]">
+              <h3 className="text-gray-800 font-bold">{articles[0].title}</h3>
+              <p className="text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+                reprehenderit ad earum accusantium, quia similique dolores modi,
+                cumque quas ullam dolore, hic magni?
+              </p>
+              <p className="text-gray-800">
+                by <span className="font-bold text-gray-800">Author</span>
+              </p>
+            </div>
+
+            {/* Image container takes 30% */}
+            <div className="w-[30%] h-full">
+              <img
+                src={articles[2].image}
+                alt={articles[1].title}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </div>
+          </div>
+
+            </div>
+            <div className="w-1/2 text-right">
+              <hr className="border-gray-400 mb-6 bg-white w-full" />
+              <div className="w-full h-96 object-cover rounded-md">
+                <img 
+                  src={articles[2].image}
+                  alt={articles[1].title}/>
+              </div>
+              <h3 className="text-gray-800 font-bold">{articles[0].title}</h3>
+              <p className="text-gray-800">
+                by <span className="font-bold text-gray-800">Author</span>
+              </p>
+            </div>
+          </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-6 py-6">
+        <div className="grid grid-cols-3 gap-6">
+          {[...Array(6)].map((_, i)=>(
+            <div
+              key={articles[0].id}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
+            >
+              <img
+                src={articles[0].image}
+                alt={articles[0].title}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold mb-2 text-black">{articles[0].title}</h3>
+                <p className="text-gray-600 text-sm">{articles[0].summary}</p>
+                <a
+                  href={articles[0].url}
+                  className="text-blue-600 text-sm font-medium mt-3 inline-block"
+                >
+                  Read More →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
