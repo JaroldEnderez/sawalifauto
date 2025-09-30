@@ -1,7 +1,38 @@
+"use client"
 import { Search } from "lucide-react"; 
 import { Formula1Section, ElectricSection, IndustrySection } from '@/components/sections'
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Home() {
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+
+      if (y < vh) {
+        controls1.start({ height: "100vh" });
+        controls2.start({ height: "0vh" });
+        controls3.start({ height: "0vh" });
+      } else if (y >= vh && y < 2 * vh) {
+        controls1.start({ height: "0vh" });
+        controls2.start({ height: "100vh" });
+        controls3.start({ height: "0vh" });
+      } else {
+        controls1.start({ height: "0vh" });
+        controls2.start({ height: "0vh" });
+        controls3.start({ height: "100vh" });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls1, controls2, controls3]);
+
   const articles = [
     {
       id: 1,
@@ -27,7 +58,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pb-20 ">
+    <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pb-20 overflow-hidden">
     
       <nav className="shadow-sm bg-gradient-to-r from-black via-gray-700 to-black">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -70,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* Articles Section */}
-      <section className="w-full mx-auto px-6 py-6 pb-20" id="latest">
+      <motion.section animate={controls1} className="w-full mx-auto px-6 py-6 pb-20 overflow-hidden" id="latest">
         <div className="max-w-6xl mx-auto content-center ">
           <h2 className="text-2xl font-semibold mb-2 text-right text-white">Latest Articles</h2>
           <hr className="border-gray-400 mb-6 bg-white w-full" />
@@ -131,9 +162,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
         
-        <section className="max-w-6xl mx-auto px-6 py-6 pb-20" id="videos">
+        <motion.section animate={controls2} className="max-w-6xl mx-auto px-6 py-6 pb-20 overflow-hidden" id="videos">
           <h2 className="text-2xl font-semibold mb-2 text-right text-white">In-Depth Automotive Video Reviews</h2>
           <div className="flex gap-x-5">
             <div className="w-1/2">
@@ -224,9 +255,9 @@ export default function Home() {
               </p>
             </div>
           </div>
-      </section>
+      </motion.section>
 
-      <section className="w-full mx-auto px-6 py-6 pb-20" id="exclusive">
+      <motion.section animate={controls3} className="w-full mx-auto px-6 py-6 pb-20 overflow-hidden" id="exclusive">
         <div className="max-w-6xl mx-auto content-center">
           <h2 className="text-2xl font-semibold mb-2 text-right text-white">Exclusive</h2>
           <hr className="border-gray-400 bg-white w-full mb-6" />
@@ -255,7 +286,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Formula1Section/>
       <ElectricSection/>
