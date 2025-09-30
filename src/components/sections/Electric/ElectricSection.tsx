@@ -17,7 +17,7 @@ export default function ElectricCarsSection() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition w-1/4"
                 >
                     <img
-                        src={evArticles[0].image}
+                    
                         alt={evArticles[0].title}
                         className="w-full h-64 object-cover"
                     />
@@ -25,9 +25,9 @@ export default function ElectricCarsSection() {
                         <h3 className="text-lg font-semibold mb-2 text-black">
                         {evArticles[0].title}
                         </h3>
-                        <p className="text-gray-600 text-sm">{evArticles[0].summary}</p>
+                        {/* <p className="text-gray-600 text-sm">{evArticles[0].summary}</p> */}
                         <a
-                        href={evArticles[0].url}
+                        href='#'
                         className="text-blue-600 text-sm font-medium mt-3 inline-block"
                         >
                         Read More →
@@ -41,7 +41,7 @@ export default function ElectricCarsSection() {
                 className="relative rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition w-1/2"
                 >
                     <img
-                        src={evArticles[1].image}
+                       
                         alt={evArticles[1].title}
                         className="h-full w-full object-cover"
                     />
@@ -58,7 +58,7 @@ export default function ElectricCarsSection() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition w-1/4"
                 >
                     <img
-                        src={evArticles[2].image}
+                       
                         alt={evArticles[2].title}
                         className="w-full h-64 object-cover"
                     />
@@ -66,9 +66,9 @@ export default function ElectricCarsSection() {
                         <h3 className="text-lg font-semibold mb-2 text-black">
                         {evArticles[2].title}
                         </h3>
-                        <p className="text-gray-600 text-sm">{evArticles[2].summary}</p>
+                        {/* <p className="text-gray-600 text-sm">{evArticles[2].summary}</p> */}
                         <a
-                        href={evArticles[2].url}
+                        href='#'
                         className="text-blue-600 text-sm font-medium mt-3 inline-block"
                         >
                         Read More →

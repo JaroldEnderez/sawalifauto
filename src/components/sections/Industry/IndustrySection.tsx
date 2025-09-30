@@ -17,7 +17,7 @@ export default function IndustrySection() {
                 className="col-span-2 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
                 >
                 <img
-                    src={industryArticles[0].image}
+               
                     alt={industryArticles[0].title}
                     className="w-full h-[400px] object-cover"
                 />
@@ -25,9 +25,9 @@ export default function IndustrySection() {
                     <h3 className="text-2xl font-bold mb-2 text-gray-900">
                     {industryArticles[0].title}
                     </h3>
-                    <p className="text-gray-700 mb-4">{industryArticles[0].summary}</p>
+                    {/* <p className="text-gray-700 mb-4">{industryArticles[0].summary}</p> */}
                     <a
-                    href={industryArticles[0].url}
+                    href='#'
                     className="text-blue-600 font-medium inline-block"
                     >
                     Read More →
@@ -43,7 +43,7 @@ export default function IndustrySection() {
                     className="bg-gray-50 rounded-lg shadow-sm overflow-hidden hover:shadow-md transition"
                     >
                     <img
-                        src={article.image}
+                      
                         alt={article.title}
                         className="w-full h-40 object-cover"
                     />
@@ -51,9 +51,9 @@ export default function IndustrySection() {
                         <h4 className="text-lg font-semibold text-gray-800 mb-1">
                         {article.title}
                         </h4>
-                        <p className="text-sm text-gray-600">{article.summary}</p>
+                        {/* <p className="text-sm text-gray-600">{article.summary}</p> */}
                         <a
-                        href={article.url}
+                        href='#'
                         className="text-blue-500 text-sm font-medium mt-2 inline-block"
                         >
                         Read More →
