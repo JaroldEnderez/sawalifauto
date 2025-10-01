@@ -1,5 +1,8 @@
 import { Search } from "lucide-react"; 
 import { Formula1Section, ElectricSection, IndustrySection } from '@/components/sections'
+import Car from '../images/Car.jpg'
+import Image from "next/image";
+import BackToTopButton from "@/components/buttons/BackToTopButton";
 
 export default function Home() {
   const articles = [
@@ -28,7 +31,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pb-20 ">
-    
+      <BackToTopButton/>
       <nav className="shadow-sm bg-gradient-to-r from-black via-gray-700 to-black">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="relative w-64">
@@ -58,16 +61,34 @@ export default function Home() {
       </nav>
 
       {/* 🔹 Hero Section */}
-      <section className="py-8 shadow-sm bg-black">
-        <div className="max-w-5xl mx-auto px-6 text-center text-white">
-          <h1 className="text-4xl font-bold mb-4 shadow shadow-lg">
-            Auto Reviews
-          </h1>
-          <p className="text-lg">
-            Latest car reviews scraped and translated for you.
-          </p>
+      <section className="relative h-screen shadow-sm bg-black">
+        {/* Sticky wrapper */}
+        <div className="sticky top-0 h-screen w-full text-white">
+          <div className="relative w-full h-full rounded-lg overflow-hidden">
+            <Image
+              src={Car}
+              alt="Car"
+              fill
+              className="object-cover object-[50%_80%]"
+              unoptimized
+            />
+
+            {/* Bottom-only inset shadow */}
+            <div className="absolute inset-0 [box-shadow:inset_0_-120px_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
+
+            {/* Text overlay */}
+            <div className="absolute top-10 right-0 text-center flex flex-col gap-y-4 px-6">
+              <h1 className="text-6xl font-bold [text-shadow:2px_2px_6px_rgba(0,0,0,1)]">
+                Auto Reviews
+              </h1>
+              <p className="text-2xl [text-shadow:2px_2px_6px_rgba(0,0,0,1)]">
+                Latest car reviews scraped and translated for you.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* Articles Section */}
       <section className="w-full mx-auto px-6 py-6 pb-20" id="latest">
@@ -233,7 +254,7 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-6">
             {[...Array(6)].map((_, i)=>(
               <div
-                key={articles[0].id}
+                key={i}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
               >
                 <img
