@@ -4,7 +4,14 @@ import Link from "next/link";
 
 const placeholder = "https://placehold.co/600x400";
 
-export default function ArticleCard({ article }: { article: any }) {
+type Article = {
+    title: string;
+    summary: string;
+    url: string;
+    image?: string;
+  };
+
+export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link href='/articles'>
         <div 

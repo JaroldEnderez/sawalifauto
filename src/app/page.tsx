@@ -60,7 +60,7 @@ export default function Home() {
           <div className="flex w-full justify-between pl-6 ">
             <ul className="flex w-full justify-between text-white text-lg list-none font-bold">
               {categories.map((category) => (
-                <li><a href={`#${category.slug}`} className="hover:text-blue-600">{category.name}</a></li>
+                <li key={category.name}><a href={`#${category.slug}`} className="hover:text-blue-600">{category.name}</a></li>
               ))}
             </ul>
           </div>
