@@ -1,12 +1,15 @@
 import React from "react";
 import { industryArticles } from "./data"; // make sure you have this array
+import Link from "next/link";
 
 export default function IndustrySection() {
   return (
     <section className="w-full mx-auto px-6 py-6 pb-20" id="industry">
         <div className="max-w-6xl mx-auto content-center">
             <h2 className="text-2xl font-semibold mb-2 text-white text-right">
-                Industry & Business
+                <Link href="/articles/industry" className="hover:underline">
+                    Industry & Business
+                </Link>
             </h2>
             <hr className="border-gray-400 mb-6 bg-white w-full" />
 

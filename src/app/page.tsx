@@ -3,6 +3,7 @@ import { Formula1Section, ElectricSection, IndustrySection } from '@/components/
 import Car from '../images/Car.jpg'
 import Image from "next/image";
 import BackToTopButton from "@/components/buttons/BackToTopButton";
+import Link from "next/link";
 
 export default function Home() {
   const articles = [
@@ -29,6 +30,15 @@ export default function Home() {
     },
   ];
 
+  const categories = [
+    { name: "Latest", slug: "latest" },
+    { name: "Reviews", slug: "reviews" },
+    { name: "Exclusive", slug: "exclusive" },
+    { name: "Formula 1", slug: "formulaOne" },
+    { name: "Electric Cars", slug: "electric" },
+    { name: "Industry and Business", slug: "industry" }
+  ];
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pb-20 ">
       <BackToTopButton/>
@@ -49,12 +59,9 @@ export default function Home() {
           {/* Links */}
           <div className="flex w-full justify-between pl-6 ">
             <ul className="flex w-full justify-between text-white text-lg list-none font-bold">
-              <li><a href="#latest" className="hover:text-blue-600">Latest</a></li>
-              <li><a href="#videos" className="hover:text-blue-600">Reviews</a></li>
-              <li><a href="#exclusive" className="hover:text-blue-600">Exclusive</a></li>
-              <li><a href="#formulaOne" className="hover:text-blue-600">Formula 1</a></li>
-              <li><a href="#electric" className="hover:text-blue-600">Electric Cars</a></li>
-              <li><a href="#industry" className="hover:text-blue-600">Industry and Business</a></li>
+              {categories.map((category) => (
+                <li><a href={`#${category.slug}`} className="hover:text-blue-600">{category.name}</a></li>
+              ))}
             </ul>
           </div>
         </div>
@@ -93,7 +100,11 @@ export default function Home() {
       {/* Articles Section */}
       <section className="w-full mx-auto px-6 py-6 pb-20" id="latest">
         <div className="max-w-6xl mx-auto content-center ">
-          <h2 className="text-2xl font-semibold mb-2 text-right text-white">Latest Articles</h2>
+        <h2 className="text-2xl font-semibold mb-2 text-right text-white">
+          <Link href="/articles/latest" className="hover:underline">
+            Latest Articles
+          </Link>
+        </h2>
           <hr className="border-gray-400 mb-6 bg-white w-full" />
 
           <div className="flex gap-x-5 h-[60vh] text-right">
@@ -154,8 +165,12 @@ export default function Home() {
         </div>
       </section>
         
-        <section className="max-w-6xl mx-auto px-6 py-6 pb-20" id="videos">
-          <h2 className="text-2xl font-semibold mb-2 text-right text-white">In-Depth Automotive Video Reviews</h2>
+        <section className="max-w-6xl mx-auto px-6 py-6 pb-20" id="reviews">
+          <h2 className="text-2xl font-semibold mb-2 text-right text-white">
+            <Link href="/articles/reviews" className="hover:underline">
+              In-Depth Automotive Video Reviews
+            </Link>
+          </h2>
           <div className="flex gap-x-5">
             <div className="w-1/2">
               <hr className="border-gray-400 bg-white w-full" />
@@ -249,7 +264,12 @@ export default function Home() {
 
       <section className="w-full mx-auto px-6 py-6 pb-20" id="exclusive">
         <div className="max-w-6xl mx-auto content-center">
-          <h2 className="text-2xl font-semibold mb-2 text-right text-white">Exclusive</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-right text-white">
+            <Link href="/articles/exclusive" className="hover:underline">
+              Exclusive
+            </Link>
+          </h2>
+          
           <hr className="border-gray-400 bg-white w-full mb-6" />
           <div className="grid grid-cols-3 gap-6">
             {[...Array(6)].map((_, i)=>(

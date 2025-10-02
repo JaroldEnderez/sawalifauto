@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { f1Articles } from "./data";
 import { ChevronDown, ChevronUp } from "lucide-react"; // install lucide-react if not yet
+import Link from "next/link";
 
 export default function Formula1Section() {
   const [openId, setOpenId] = useState(null);
@@ -17,7 +18,9 @@ export default function Formula1Section() {
     <section className="w-full mx-auto px-6 py-6 pb-20" id="formulaOne">
       <div className="max-w-6xl mx-auto content-center">
       <h2 className="text-2xl font-semibold mb-2 text-right text-white">
-        Formula 1
+        <Link href="/articles/formulaOne" className="hover:underline">
+          Formula 1
+        </Link>
       </h2>
       <hr className="border-gray-400 bg-white w-full mb-6" />
       <p className="mb-8 text-white text-lg italic text-right">

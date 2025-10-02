@@ -1,12 +1,15 @@
 import React from "react";
 import { evArticles } from "./data"; // import your EV articles
+import Link from "next/link";
 
 export default function ElectricCarsSection() {
   return (
     <section className="w-full mx-auto px-6 py-6 pb-20 " id="electric">
         <div className="max-w-6xl mx-auto content-center">
             <h2 className="text-2xl font-semibold mb-2 text-right text-white">
-                Electric Cars 
+                <Link href="/articles/electric" className="hover:underline">
+                Electric Cars
+                </Link>
             </h2>
             <hr className="border-gray-400 mb-6 bg-white w-full" />
 
